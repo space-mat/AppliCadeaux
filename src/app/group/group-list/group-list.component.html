@@ -1,0 +1,47 @@
+
+
+
+<div class="row" style="border-style: solid;margin-top: 25px;margin-bottom: 25px;">
+	<div class="col-sm-12">
+		<h2>Favoris</h2>
+	</div>
+	<div class="col-sm-12">
+		<app-item-list-fav></app-item-list-fav>
+	</div>
+</div>
+
+
+
+<div class="row" *ngFor="let groupInD of groupsX" style="border-style: solid;margin-top: 25px;margin-bottom: 25px;">
+	<div class="col-sm-8" style="height: 70px;">
+		<h2>{{ groupInD.name }}</h2>
+	</div>
+	<div class="col-sm-4" style="height: 70px;">
+		<button class="btn btn-danger pull-right" (click)="onDeleteGroup(groupInD)" style="margin-top: 15px;">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</div>
+
+	<div class="col-sm-12">
+		<app-item-list [groupName]="groupInD.name" ></app-item-list>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<button class="list-group-item" 
+					style="border-style: solid;margin: 25px auto 25px auto; width: auto;"
+					(click)="onNewGroup()">
+
+				<h3 class="list-group-item-heading" style="text-align: center;margin-top: 5px;margin-bottom: 5px;"> 
+					Nouveau groupe
+				</h3>
+				<div style="font-size: 50px;text-align: center">
+					<span class="glyphicon glyphicon-plus"></span>
+				</div>
+
+		</button>
+	</div>
+</div>

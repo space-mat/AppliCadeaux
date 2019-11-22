@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<h2>Nouveau groupe</h2>
+		<form [formGroup]="groupForm" (ngSubmit)="onSaveGroup()">
+			<div class="form-group">
+				<label for="nameX">Nom : </label>
+				<input type="text" id="nameX" class="form-control" formControlName="name">
+			</div>
+			<div class="form-group">
+				<label for="notesX">Descriptions : </label>
+				<input type="text" id="notesX" class="form-control" formControlName="notes">
+			</div>
+			
+			<button type="submit" class="btn btn-primary" [disabled]="groupForm.invalid">Ajouter</button>
+			
+		</form>
+		<p class="text-danger">{{ errorMessage }}</p>
+	</div>
+</div>

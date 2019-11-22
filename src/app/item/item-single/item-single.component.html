@@ -1,0 +1,62 @@
+<style type="text/css">
+  .yellowStar{
+    color : yellow;
+  }
+</style>
+
+<div class="row">
+	<div class="col-sm-5 col-sm-offset-2">
+		<button class="btn btn-primary pull-left" (click)="onToggleFav()">
+
+			<span [ngClass]="{
+				  	'glyphicon': true,
+				  	'glyphicon-star': true,
+				  	'yellowStar' : singleItem.favoris}">
+				  	FAVORIS
+	    	</span>
+		</button>
+
+
+		<div style="margin-top: 25px;margin-bottom: 25px;">
+			<h2 style="font-size: 75px;">{{singleItem.name}}</h2>
+		</div>
+		<div *ngIf="singleItem.notes!=''">
+			<h3 style="font-size: 40px;">Descriptions</h3>
+			<p style="font-size: 25px;">{{singleItem.notes}}</p>
+		</div>
+
+		<div *ngIf="singleItem.links!=''">
+			<h3 style="font-size: 40px;">Liens</h3>
+			<a href={{singleItem.links}} style="font-size: 25px;" target="_blank">{{singleItem.links}}</a>
+		</div>
+
+		<div *ngIf="singleItem.group!=''">
+			<h3 style="font-size: 40px;">Groupe</h3>
+			<p style="font-size: 25px;">{{singleItem.group}}</p>
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<img style="width:100%;margin-top: 25px;margin-bottom: 25px;" *ngIf="singleItem.photos" [src]="singleItem.photos">
+	</div>
+</div>
+<div class="row" style="margin-top: 50px;">
+	<div class="col-sm-4 col-sm-offset-2">
+		<button class="btn btn-primary btn-lg btn-block" (click)="onEditItem()">
+			MODIFIER
+			<span class="glyphicon glyphicon-pencil"></span>
+		</button>
+	</div>
+	<div class="col-sm-4">
+		<button class="btn btn-danger btn-lg btn-block" (click)="onDeleteItem()">
+			SUPPRIMER
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</div>
+
+</div>
+
+
+
+
+				
+	

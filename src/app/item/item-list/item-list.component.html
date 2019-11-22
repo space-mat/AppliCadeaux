@@ -1,0 +1,57 @@
+<style type="text/css">
+  .yellowStar{
+    color : yellow;
+  }
+</style>
+
+<div class="row">
+	<div *ngFor="let itemInD of itemsX ; let i = index">
+		<div class="col-sm-4" 
+			 *ngIf="itemInD.group === groupName">
+			<button class="list-group-item" 
+					style="border-style: solid;width: 100%;"
+					(click)="onItemSingle(i)">
+
+				<button class="btn btn-primary pull-left" (click)="onToggleFav(itemInD)">
+					<span [ngClass]="{
+						  	'glyphicon': true,
+						  	'glyphicon-star': true,
+						  	'yellowStar' : itemInD.favoris}">
+                	</span>
+				</button>
+				<button class="btn btn-danger pull-right" (click)="onDeleteItem(itemInD)">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+
+				<h3 class="list-group-item-heading" style="text-align: center;margin-top: 25px;margin-bottom: 25px;"> 
+					{{ itemInD.name }}
+				</h3>
+				<p>{{itemInD.notes}}</p>
+				<a href={{itemInD.links}}></a>
+				
+			</button>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12" *ngIf= "groupName != 'Favoris'">
+		<button class="list-group-item" 
+					style="border-style: solid;margin: 25px auto 25px auto;width: auto;"
+					(click)="onNewItem()">
+
+				<h3 class="list-group-item-heading" style="text-align: center;margin-top: 5px;margin-bottom: 5px;"> 
+					Nouveau cadeau
+				</h3>
+				<div style="font-size: 50px;text-align: center">
+					<span class="glyphicon glyphicon-plus"></span>
+				</div>	
+		</button>
+	</div>
+</div>
+
+
+
+
+
